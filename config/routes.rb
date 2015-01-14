@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+
+resources :lists do
+  resources :tasks, controller: 'lists/tasks'
+end
   get 'index' => 'welcome/index'
 
   get 'about' => 'welcome/about'
