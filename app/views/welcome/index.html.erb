@@ -1,8 +1,8 @@
 <div class="jumbotron">
     <% if current_user %>
-            Hello
+        <%= render partial: 'lists/list' %>
     <% else %>
-      <%= render 'signup' %>
+        <%= render 'signup' %>
     <% end %>
   </p>
 </div>

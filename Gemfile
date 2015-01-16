@@ -14,6 +14,13 @@ gem 'figaro', '1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'activesupport'
+gem 'pundit'
+gem 'redcarpet'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'will_paginate', '~> 3.0.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 
 
@@ -32,6 +39,7 @@ group :doc do
 end
 
 group :test do
+  gem 'rspec-rails', '~> 3.1.0'
 end
 
 # Use ActiveModel has_secure_password

@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150114212825) do
   add_index "lists", ["user_id"], name: "index_lists_on_user_id"
 
   create_table "tasks", force: true do |t|
+    t.string   "title"
     t.string   "body"
     t.float    "age"
     t.datetime "created_at"

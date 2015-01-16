@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-resources :lists do
+resources :lists, except: [:index] do
   resources :tasks, controller: 'lists/tasks'
 end
   get 'index' => 'welcome/index'
 
   get 'about' => 'welcome/about'
+
+ 
 
     root to: 'welcome#index'
 
