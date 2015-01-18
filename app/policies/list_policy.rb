@@ -1,2 +1,3 @@
 class ListPolicy < ApplicationPolicy
+
 end

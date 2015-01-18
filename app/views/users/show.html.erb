@@ -1,6 +1,6 @@
 <h1>User Profile</h1>
 
-<% if @list.nil? %>
+<% if @user.list.nil? %>
    <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
  <% end %>
 
@@ -8,14 +8,14 @@
 
  <div class="row">
   <div class="col-md-8">
-    <% @user.list%>
+    <%= @user.list %>
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to current_user.list, list %>
+            <%= @user.list %>
           </h4>
           <small>
-            <%= current_user.list.description %>
+            <%#= @list.description %>
           </small>
         </div>
       </div>

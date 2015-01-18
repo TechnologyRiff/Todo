@@ -23,7 +23,7 @@ class ListsController < ApplicationController
     def update
       @list = List.find(params[:user_id])
       authorize @list
-      if @list.update_attributes.require(:id).permit(:title)
+      if @list.update_attributes.require(:id).permit(:title, :description)
         redirect_to @list, notice: "List was updated successfully."
       else
         flash[:error] = "Error saving list. Please try again."
@@ -33,8 +33,8 @@ class ListsController < ApplicationController
 
   
     def edit
-      @list = List.find(params[:id])
-      authorize @list
+      @list = current_user.list
+    
     end
 
     def destroy
@@ -53,7 +53,7 @@ class ListsController < ApplicationController
 
   private 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, :description)
   end
 
 end
