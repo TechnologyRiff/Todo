@@ -1,5 +1,5 @@
 class Lists::TasksController < ApplicationController
-  resond_to :html, :js
+  respond_to :html, :js
 
   def show
     current_user?
@@ -11,11 +11,12 @@ class Lists::TasksController < ApplicationController
   def new
     @list = List.find(params[:list_id])
     @task = Task.new
-    authorize @list
+   
+    authorize @task
   end
 
   def create
-    @list = List.find(params[:topic_id])
+    @list = List.find(params[:list_id])
     @task = current_user.tasks.build(params[:id])
     @task.list = @list
     authorize @task
@@ -24,7 +25,7 @@ class Lists::TasksController < ApplicationController
       flash[:notice] = "Task was saved."
       redirect_to [@list, @task]
     else
-      flash:[:error] = "There was an error saving the task. Please try again."
+      flash[:error] = "There was an error saving the task. Please try again."
       render :new
     end
   end
