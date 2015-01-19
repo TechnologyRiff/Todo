@@ -1,19 +1,18 @@
 <h1>Edit List</h1>
-<div class="row">
-  <div class="col-md-8">
-  <% if @list.nil? %>
-    <%= link_to new_list_path %>
-    <% else %>
-    <%= form_for @list do |t| %>
-      <div class="form-group">
-        <%= t.label :title %>
-        <%= t.text_field :title, class: 'form-control', placeholder: "New list name" %>
-        <%= t.label :description %>
-        <%= t.text_field :description, rows: 3, class: 'form-control', placeholder: "Update list description" %> 
-      </div>
-      <%= t.submit "Save", class: 'btn btn-success' %>
-    <% end %>
-    <% end %>
-
-</div>
-</div>
+  <div class="row">
+    <div class="col-md-8">
+      <% if @list.nil? %>
+        <%= link_to new_list_path %>
+      <% else %>
+        <%= form_for @list do |t| %>
+          <div class="form-group">
+            <%= t.label :title %>
+            <%= t.text_field :title, class: 'form-control', placeholder: "New list name" %>
+            <%= t.label :description %>
+            <%= t.text_field :description, rows: 3, class: 'form-control', placeholder: "Update list description" %> 
+          </div>
+            <%= t.submit "Save", class: 'btn btn-success' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
