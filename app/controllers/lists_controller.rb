@@ -11,6 +11,7 @@ class ListsController < ApplicationController
 
     def create
       @list = List.new(list_params)
+      @list.user = current_user
       authorize @list
       if @list.save
         redirect_to @list, notice: "List was created successfully."
@@ -21,9 +22,9 @@ class ListsController < ApplicationController
     end
 
     def update
-      @list = List.find(params[:user_id])
+      @list = List.find(params[:id])
       authorize @list
-      if @list.update_attributes.require(:id).permit(:title, :description)
+      if @list.update_attributes(list_params)
         redirect_to @list, notice: "List was updated successfully."
       else
         flash[:error] = "Error saving list. Please try again."
