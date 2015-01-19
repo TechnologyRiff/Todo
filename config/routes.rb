@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 resources :lists, except: [:index] do
-  resources :tasks, controller: 'lists/tasks'
+  
 end
   get 'index' => 'welcome/index'
 
