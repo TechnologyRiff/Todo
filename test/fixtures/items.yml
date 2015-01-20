@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyString
-  age: 1.5
+  name: MyString
+  list_id: 
+  complete: false
 
 two:
-  body: MyString
-  age: 1.5
+  name: MyString
+  list_id: 
+  complete: false
