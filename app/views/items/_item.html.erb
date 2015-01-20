@@ -1,0 +1,16 @@
+<%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
+  
+  <%= link_to '#', class: 'pull-left' do %>  
+  <% end %>
+
+  <div class="media-body">
+    <small>
+      <%= list.item.name %> Task <%= time_ago_in_words(item.created_at) %> ago
+      <% if policy(item).destroy? %>
+      | <%= link_to "Delete", [item.list, item], method: :delete, remote: true %>
+      <% end %>
+    </small>
+    <p><%= item.name %></p>
+  </div>
+
+<% end %>
