@@ -42,7 +42,7 @@ class ListsController < ApplicationController
 
     def destroy
       @list = List.find(params[:id])
-      title = @link.title
+      title = @list.title
 
       authorize @list
       if @list.destroy

@@ -20,10 +20,25 @@ class ItemsController < ApplicationController
     end
 
     respond_with(@item) do |format|
-      format.html { redirect_to @list }
+       format.html { redirect_to @list }
     end
   end
 
+  def destroy
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    authorize @item
+
+    if @item.destroy
+      flash[:notice] = "Item was deleted."
+    else
+      flash[:error] = "Item couldn't be deleted. Try again."
+    end
+ 
+     respond_with(@item) do |format|
+       format.html { redirect_to @list }
+     end
+    end
   
   private 
   
