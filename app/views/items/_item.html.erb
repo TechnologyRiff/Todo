@@ -1,9 +1,8 @@
 <%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
-
   <div class="media-body">
     <small>     
-        <%= link_to " ", @item, method: :delete, remote: true, class: 'glyphicon glyphicon-ok' %>
-        <%= item.name %> Task <%= item.created_at %> ago
+        <%= link_to "", [item.list, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
+        <%= item.name %> <%= time_ago_in_words(item.created_at) %> ago
     </small>
   </div>
 
