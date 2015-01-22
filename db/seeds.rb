@@ -7,49 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'faker'
 
- # Create Users
-5.times do
-  user = User.new(
-    name:       Faker::Name.name,
-    email:      Faker::Internet.email,
-    password:   Faker::Lorem.characters(10)
-    )
-  user.skip_confirmation!
-  user.save!
-end
-users = User.all
-
- #create list
- 5.times do
-   list = List.create!(
-    user: users.sample,
-    title:  Faker::Lorem.sentence,
-    description:   Faker::Lorem.paragraph
-   )
-   list.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
- end
-
- lists = List.all
- 
- # Create items
- 50.times do
-   item = Item.create!(
-    list: lists.sample,
-    name: Faker::Lorem.sentence
-   )
-   item.update_attributes!(created_at: rand(10.minutes .. 2.weeks).ago)
- end
-
- items = Item.all
- 
- puts "#{User.count} users created"
- puts "#{List.count} lists created"
- puts "#{Item.count} tasks created"
-
-
-
-# Create a member
-member = User.new(
+ member = User.new(
   name:     'Member User',
   email:    'member@example.com',
   password: 'helloworld',
@@ -58,4 +16,23 @@ member = User.new(
 member.skip_confirmation!
 member.save!
 
+#create list
+list = List.create!(
+  user: member,
+  title:  Faker::Lorem.sentence,
+  description:   Faker::Lorem.paragraph
+)
+
+# Create items
+10.times do
+  item = Item.create!(
+    list: list,
+    name: Faker::Lorem.sentence
+  )
+  item.update_attributes!(created_at: rand(10.minutes .. 2.weeks).ago)
+end
+
+puts "#{User.count} users created"
+puts "#{List.count} lists created"
+puts "#{Item.count} tasks created"
 puts "Seed finished"

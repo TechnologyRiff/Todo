@@ -9,9 +9,18 @@
           <p>
             <% unless @list.items.nil? %>
               <br />
-                Current tasks: <%= render partial: 'items/item', collection: @items %>
+               
+                <div class='js-items'>
+                    Current tasks: <%= render partial: 'items/item', collection: @items %>
+                
+                    Tasks about to expire: <%#= render partial: 'items/urgent', collection: @items %>
+                    <br />
+                </div> 
             <% end %> 
-                <%= render partial: 'items/form', locals: { list: @list } %>
+                  <br />
+                <div class='new-item'>
+                   <%= render partial: 'items/form', locals: { list: @list } %>
+                </div>
           </p>
   </div>
 </div>

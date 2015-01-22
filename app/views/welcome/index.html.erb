@@ -9,4 +9,10 @@
 </div>
 
   <div class="col-md-4", class='pull-right'>
+   <% unless @list.items.nil? %>
+      <div class='js-items'>          
+        Tasks about to expire: <%#= render partial: 'items/urgent', collection: @items %>
+        <br />
+      </div>       
+   <% end %> 
   </div>

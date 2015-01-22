@@ -1,2 +1,6 @@
 <%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
-        <%= item.name %> <%= time_ago_in_words(item.created_at) %> ago
+       
+        <% if (created_at / (7.0 * 60 * 60 * 24)) > 0.85 %>
+          <%= item.name %> <%= time_ago_in_words(item.created_at) %> ago
+        <% end %>
+<% end %>

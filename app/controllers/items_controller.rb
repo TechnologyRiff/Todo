@@ -11,8 +11,10 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @items = @list.items
 
-    @item = @list.items.build(item_params)
-    #authorize @item
+    @item = @list.items.build( item_params )
+    
+    authorize @item
+    
     if @item.save
       flash[:notice] = "Item was created successfully."
     else 
@@ -20,7 +22,7 @@ class ItemsController < ApplicationController
     end
 
     respond_with(@item) do |format|
-       format.html { redirect_to @list }
+       format.html { redirect_to [@list, @item] }
     end
   end
 

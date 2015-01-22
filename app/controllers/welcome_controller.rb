@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
   def index
     @list = current_user.list
       @items = @list.items if @list
+       
     
   end
 
