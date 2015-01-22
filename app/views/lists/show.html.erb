@@ -4,16 +4,9 @@
 
   <div class="row">
     <div class="col-md-8", class: 'pull-left'>
-    <h1><%= @list.title %></h1>
-    <h3><%= @list.description %></h3>
-        <%= link_to "Edit List", edit_list_path(:list_id), class: 'btn btn-success' %>
-        <%= render partial: 'items/form', locals: { list: @list } %>
-          <%= render partial: 'items/item', collection: @items %>
-
-
-      <% if policy(@list).destroy? %>
-        <%= link_to "Delete List", @list, method: :delete, class: 'btn btn-danger' %>
-      <% end %>
+    <%= render partial: 'lists/list', locals: { list: @list, item: @item } %>
+        
+        
     </div>
   </div>
 <% end %>

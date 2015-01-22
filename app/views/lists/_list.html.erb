@@ -1,17 +1,18 @@
 <div class="row">
   <div class="col-md-8">
-    <% if @list.present? %>
-      <h1><%= @list.title %></h1>
-    <% else %>
-        <div class="col-md-8">
-          <% if policy(List.new).create? %>
-            <%= link_to "Create List", new_list_path(@list), class: 'btn btn-success' %>
-          <% end %>
-        </div>
-    <% end %>
+      <h1>List: <%= @list.title %></h1>
+      <h3>Description: <%= @list.description %></h3>
+      <%= link_to "Edit List", edit_list_path(:list_id), class: 'btn btn-success' %>
+      <% if policy(@list).destroy? %>
+        <%= link_to "Delete List", @list, method: :delete, class: 'btn btn-danger' %>
+      <% end %>
+          <p>
+            <% unless @list.items.nil? %>
+              <br />
+                Current tasks: <%= render partial: 'items/item', collection: @items %>
+            <% end %> 
+                <%= render partial: 'items/form', locals: { list: @list } %>
+          </p>
   </div>
 </div>
-<div class="col-md-4">
-</div>
-
 

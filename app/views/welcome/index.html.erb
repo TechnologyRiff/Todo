@@ -1,20 +1,12 @@
 <div class="jumbotron">
-    <% if current_user %>
-        <%= render partial: 'lists/list' %>
-    <% else %>
+    <% if current_user.list.present? %>
+          <%= render partial: 'lists/list' %>
+      <% elsif current_user.present? && @list.nil? %>
+        <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
+      <% else %>
         <%= render 'signup' %>
     <% end %>
-  </p>
 </div>
 
-<div class="row">
-  <div class="col-md-8">
-    <h2>To Do List</h2>
-    <p></p>
+  <div class="col-md-4", class='pull-right'>
   </div>
-  <div class="col-md-4">
-    <h2>Partials</h2>
-    <p></p>
-  </div>
-</div>
-

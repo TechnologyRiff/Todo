@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
     end
  
      respond_with(@item) do |format|
-       format.html { redirect_to @list }
+       format.html { redirect_to index_path }
      end
     end
   
