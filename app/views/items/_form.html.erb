@@ -1,4 +1,4 @@
-<%= form_for [@list, @list.items.new] do |f| %>
+<%= form_for [@list, @new_item] do |f| %>
   <%= f.label :'Create new Task' %>
   <%= f.text_area :name, rows: 2, class: 'form-control', placeholder: "Describe task." %>
 

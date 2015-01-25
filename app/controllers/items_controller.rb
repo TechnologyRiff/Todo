@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
     
     if @item.save
       flash[:notice] = "Item was created successfully."
+      
     else 
       flash[:error] = "Error creating task. Please try again."
     end
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
   def destroy
     @list = List.find(params[:list_id])
     @item = @list.items.find(params[:id])
-    authorize @item
+  
 
     if @item.destroy
       flash[:notice] = "Item was deleted."
@@ -38,7 +39,7 @@ class ItemsController < ApplicationController
     end
  
      respond_with(@item) do |format|
-       format.html { redirect_to index_path }
+       format.html { redirect_to root_path }
      end
     end
   

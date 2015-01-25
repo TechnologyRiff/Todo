@@ -1,4 +1,5 @@
-<div class="jumbotron">
+<div class="row">
+  <div class="col-md-8">
     <% if current_user.list.present? %>
           <%= render partial: 'lists/list' %>
       <% elsif current_user.present? && @list.nil? %>
@@ -6,13 +7,21 @@
       <% else %>
         <%= render 'signup' %>
     <% end %>
-</div>
+  </div>
 
-  <div class="col-md-4", class='pull-right'>
+  <div class="col-md-4" >
    <% unless @list.items.nil? %>
-      <div class='js-items'>          
-        Tasks about to expire: <%#= render partial: 'items/urgent', collection: @items %>
+      <div class='js-items'> <br />         
+         <button class="btn btn-danger" type="button">
+            Tasks about to expire: <span class="badge"><%= @items.count %></span>
+        </button>
+        <br />
+            <% @items.each do |item| %>
+              <%= render partial: 'items/urgent', locals: { item: item } %>
+            <% end %>
+
         <br />
       </div>       
    <% end %> 
   </div>
+</div>

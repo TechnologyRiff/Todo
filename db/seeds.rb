@@ -19,8 +19,8 @@ member.save!
 #create list
 list = List.create!(
   user: member,
-  title:  Faker::Lorem.sentence,
-  description:   Faker::Lorem.paragraph
+  title:  Faker::Lorem.sentence
+  #,description:   Faker::Lorem.paragraph
 )
 
 # Create items
