@@ -13,13 +13,12 @@
    <% unless @list.items.nil? %>
       <div class='js-items'> <br />         
          <button class="btn btn-danger" type="button">
-            Tasks about to expire: <span class="badge"><%= @items.count %></span>
+            Tasks about to expire: <span class="badge"><%= @urgent_items.count %></span>
         </button>
         <br />
-            <% @items.each do |item| %>
+            <% @urgent_items.each do |item| %>
               <%= render partial: 'items/urgent', locals: { item: item } %>
             <% end %>
-
         <br />
       </div>       
    <% end %> 

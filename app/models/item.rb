@@ -13,11 +13,16 @@ class Item < ActiveRecord::Base
     created_at.to_i / (7.0 * 60 * 60 * 24)
   end
 
-  def age_urgent
-    age >= 0.85
+  def self.urgent
+    urgent_at = (Time.now - 5.days)
+    Item.where("created_at <= ?", urgent_at )
+    #(created_at.to_date + 7.days - Date.today).to_i
   end  
 
   def days_left
-    (DateTime.now.to_date - created_at.to_date).to_i
+    #((DateTime.now - 7.days).to_date + created_at.to_date).to_i
+    (created_at.to_date + 7.days - Date.today).to_i
   end
 end
+
+#day 7 days - diff between now and when it was created

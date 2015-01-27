@@ -21,6 +21,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
+gem 'whenever', :require => false
 # bundle exec rake doc:rails generates the API under doc/api.
 
 

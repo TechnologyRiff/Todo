@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
     @item = @list.items.build( item_params )
     
-    authorize @item
+    #authorize @item
     
     if @item.save
       flash[:notice] = "Item was created successfully."

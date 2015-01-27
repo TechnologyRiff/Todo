@@ -1,9 +1,7 @@
 <%= content_tag :div, class: 'media', id: "item-urgent-#{item.id}" do %>
   <div class="media-body">
     <small>     
-        <% if item.age >= 0.85 %>
          <%= link_to " ", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok' %><%=item.name %> <%= time_ago_in_words(item.created_at) %> ago
-        <% end %>
     </small>
    </div>  
 <% end %>
