@@ -4,6 +4,7 @@ class ListsController < ApplicationController
     def show
       @list = current_user.list
       @items = @list.items if @list
+      @new_item = Item.new
       #authorize @list 
     end
 
@@ -42,7 +43,7 @@ class ListsController < ApplicationController
 
     def destroy
       @list = List.find(params[:id])
-      title = @link.title
+      title = @list.title
 
       authorize @list
       if @list.destroy
@@ -56,7 +57,7 @@ class ListsController < ApplicationController
 
   private 
   def list_params
-    params.require(:list).permit(:title, :description)
+    params.require(:list).permit(:title) #, :description)
   end
 
 end

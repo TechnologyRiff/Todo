@@ -5,7 +5,11 @@
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+
 <body>
 
   <div class="container">
@@ -35,17 +39,22 @@
 
     <% if flash[:notice] %>
       <div class="alert alert-success">
-        <button type="button" clase="close" data-dismiss="alert">&times;</button>
+        <button type="button" clase="close" data-dismiss="alert">
+          <span class="glyphicon glyphicon-ok"></span>
+        </button>
         <%= flash[:notice] %>
       </div>
     <%elsif flash[:error] %>
-      <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <div class="alert alert-danger" role="alert"> 
+            <button type="button" class="close" data-dismiss="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            </button>
         <%= flash[:error] %>
       </div>
     <% elsif flash[:alert] %>
-      <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert"><&times;</button>
+      <div class="alert alert-warning" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+          <span class="glyphicon glyphicon-remove-circle"></span></button>
         <%= flash[:alert] %>
       </div>
     <% end %>
