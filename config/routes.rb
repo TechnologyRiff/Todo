@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
 
-  get 'items/new'
+  
 
 resources :lists, except: [:index, :show] do
   resources :items, only: [:create, :destroy]
 end
 
+  get 'lists/items' => 'welcome#index'
+
   get 'index' => 'welcome/index'
 
   get 'about' => 'welcome/about'
 
-  get 'list/show' => 'welcome#index'
+  get 'lists/show' => 'welcome#index'
 
-  get 'list/index' => 'welcome#index'
+  get 'lists/index' => 'welcome#index'
 
     root to: 'welcome#index'
 
