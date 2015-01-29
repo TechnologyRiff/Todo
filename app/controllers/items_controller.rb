@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
     end
 
     respond_with(@item) do |format|
-       format.html { redirect_to [@list, @item] }
+       format.html { redirect_to root_path }
     end
   end
 

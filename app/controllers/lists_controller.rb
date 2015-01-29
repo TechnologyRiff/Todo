@@ -17,7 +17,7 @@ class ListsController < ApplicationController
       @list.user = current_user
       authorize @list
       if @list.save
-        redirect_to @list, notice: "List was created successfully."
+        redirect_to :root, notice: "List was created successfully."
       else
         flash[:error] = "Error creating list. Please try again."
         render :new
@@ -28,7 +28,7 @@ class ListsController < ApplicationController
       @list = List.find(params[:id])
       authorize @list
       if @list.update_attributes(list_params)
-        redirect_to @list, notice: "List was updated successfully."
+        redirect_to :root, notice: "List was updated successfully."
       else
         flash[:error] = "Error saving list. Please try again."
         render :edit
@@ -48,10 +48,10 @@ class ListsController < ApplicationController
       authorize @list
       if @list.destroy
         flash[:notice] = "\"#{title}\" was deleted successfully."
-        redirect_to lists_path
+        redirect_to :root
       else
         flash[:error] = "There was an error deleting the list."
-        render :show
+        redirect_to :back
       end
     end
 
