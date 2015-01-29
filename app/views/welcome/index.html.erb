@@ -1,26 +1,28 @@
-<div class="row">
-  <div class="col-md-8">
-    <% if current_user.list.present? %>
-          <%= render partial: 'lists/list' %>
-      <% elsif current_user.present? && @list.nil? %>
-        <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
-      <% else %>
-        <%= render 'signup' %>
-    <% end %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <% if current_user.list.present? %>
+            <%= render partial: 'lists/list' %>
+        <% elsif current_user.present? && @list.nil? %>
+          <%= link_to "New To-do List", new_list_path, class: 'btn btn-success' %>
+        <% else %>
+          <%= render 'signup' %>
+      <% end %>
+    </div>
 
-  <div class="col-md-4" >
-   <% unless @list.items.nil? %>
-      <div class='js-items'> <br />         
-         <button class="btn btn-danger" type="button">
-            Tasks about to expire: <span class="badge"><%= @urgent_items.count %></span>
-        </button>
-        <br />
-            <% @urgent_items.each do |item| %>
-              <%= render partial: 'items/urgent', locals: { item: item } %>
-            <% end %>
-        <br />
-      </div>       
-   <% end %> 
+    <div class="col-md-4" >
+     <% unless @list.items.nil? %>
+        <div class='js-items'> <br />         
+           <button class="btn btn-danger" type="button">
+              Tasks about to expire: <span class="badge"><%= @urgent_items.count %></span>
+          </button>
+          <br />
+              <% @urgent_items.each do |item| %>
+                <%= render partial: 'items/urgent', locals: { item: item } %>
+              <% end %>
+          <br />
+        </div>       
+     <% end %> 
+    </div>
   </div>
 </div>
