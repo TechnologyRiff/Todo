@@ -12,17 +12,4 @@
     </div>
 </div>
 
-    <div class="col-md-4 pull-right">
-     <% unless @list.items.nil? %>
-        <div class='js-items' class: 'pull-right'> 
-           <button class="btn btn-danger" type="button">
-              Tasks about to expire: <span class="badge"><%= @urgent_items.count %></span>
-          </button>
-          <br />
-              <% @urgent_items.each do |item| %>
-                <%= render partial: 'items/urgent', locals: { item: item } %>
-              <% end %>
-          <br />
-        </div>       
-     <% end %> 
-    </div>
+    
