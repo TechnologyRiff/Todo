@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col-md-8">
@@ -9,10 +10,11 @@
           <%= render 'signup' %>
       <% end %>
     </div>
+</div>
 
-    <div class="col-md-4" >
+    <div class="col-md-4 pull-right">
      <% unless @list.items.nil? %>
-        <div class='js-items'> <br />         
+        <div class='js-items' class: 'pull-right'> 
            <button class="btn btn-danger" type="button">
               Tasks about to expire: <span class="badge"><%= @urgent_items.count %></span>
           </button>
@@ -24,5 +26,3 @@
         </div>       
      <% end %> 
     </div>
-  </div>
-</div>
