@@ -15,7 +15,7 @@
               <% unless @list.items.nil? %>
                 <div class="container">
                   <div class="row">
-                    <div class="col-md-4 pull-left">
+                    <div class="col-md-3 pull-left col-offset-1">
                       <div class='js-items'> 
                          <button class="btn btn-danger" type="button">
                             Tasks about to expire: <span class="badge"><%= @urgent_items.count %></span>
@@ -29,9 +29,9 @@
                   <% end %> 
                   </div>
 
-                  <div class="col-md-8">                  
+                  <div class="col-md-8 pull-right">                  
                     <div class='js-items'> 
-                         <button class="btn btn-warning" type="button">
+                         <button class="btn btn-primary" type="button">
                             Total Number of Tasks: <span class="badge"><%= @items.count %></span>
                         </button>
                         <!-- <div class="dropdown">
