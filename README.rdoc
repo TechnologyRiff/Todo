@@ -1,11 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This site is a To Do List application. 
 
-Things you may want to cover:
+It uses Ruby 2.1.2 and Rails 4.1.8
 
-* Ruby version
+Address: [https://riff-to-do.herokuapp.com]
 
 * System dependencies
 
