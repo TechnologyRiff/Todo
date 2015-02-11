@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blocitoff</title>
+  <title>Check It Off</title>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
 
 <body>
 
   <div class="container">
     <ul class="nav nav-tabs">
-      <li><%=link_to "Blocitoff", root_path %></li>
+      <li><%=link_to "Check It Off", root_path %></li>
       
 
         <div class="pull-right user-info">
@@ -29,8 +26,10 @@
             <% end %>
             
           <% else %>
-            <%= link_to "Sign In", new_user_session_path %> or
-            <%= link_to "Sign Up", new_user_registration_path %>
+          <ul class="nav nav-tabs">
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          </ul>
           <% end %>
         </div>
     </ul>
