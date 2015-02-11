@@ -12,7 +12,7 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%=link_to "Check It Off", root_path %></li>
-      
+    
 
         <div class="pull-right user-info">
 
@@ -26,10 +26,11 @@
             <% end %>
             
           <% else %>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          
-          <% end %>
+            <ul class="nav nav-tabs">
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            </ul>
+            <% end %>
         </div>
     </ul>
 
