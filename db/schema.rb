@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150119194535) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "complete",    default: false
+    t.text     "description"
   end
 
   add_index "lists", ["user_id"], name: "index_lists_on_user_id"
