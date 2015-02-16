@@ -5,59 +5,48 @@
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  </head>
-
+</head>
 <body>
-
   <div class="container">
     <ul class="nav nav-tabs">
       <li><%=link_to "Check It Off", root_path %></li>
-
         <div class="pull-right user-info">
-
-          <% if current_user %>
-            Hello <%= current_user.name || current_user.email %>! 
-            <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
-              <span class="glyphicon glyphicon-user"></span>
+          <div class="nav nav-tabs">
+            <% if current_user %>
+              Hello <%= current_user.name || current_user.email %>!
+              <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-user"></span>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+                <span class="glyphicon glyphicon-log-out"></span>
+              <% end %>
+            <% else %>
+                <li><%= link_to "Sign In", new_user_session_path %></li>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <% end %>
-            <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
-              <span class="glyphicon glyphicon-log-out"></span>
-            <% end %>
-            
-          <% else %>
-            <ul class="nav nav-tabs">
-              <li><%= link_to "Sign In", new_user_session_path %></li>
-              <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            </ul>
-            <% end %>
+          </div>
         </div>
     </ul>
 
     <% if flash[:notice] %>
       <div class="alert alert-success">
-        <button type="button" clase="close" data-dismiss="alert">
-          <span class="glyphicon glyphicon-ok"></span>
-        </button>
+        <button type="button" clase="close" data-dismiss="alert"></button>
         <%= flash[:notice] %>
       </div>
     <%elsif flash[:error] %>
       <div class="alert alert-danger" role="alert"> 
-            <button type="button" class="close" data-dismiss="alert">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            </button>
+        <button type="button" class="close" data-dismiss="alert"></button>
         <%= flash[:error] %>
       </div>
     <% elsif flash[:alert] %>
       <div class="alert alert-warning" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-          <span class="glyphicon glyphicon-remove-circle"></span></button>
+        <button type="button" class="close" data-dismiss="alert"></button>
         <%= flash[:alert] %>
       </div>
     <% end %>
-     <%= yield %>
-</div>
-   
-  
 
+     <%= yield %>
+  </div>
+   
 </body>
 </html>

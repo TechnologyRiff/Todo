@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  
-
 resources :lists, except: [:index, :show] do
   resources :items, only: [:create, :destroy]
 end

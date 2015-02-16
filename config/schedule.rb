@@ -7,8 +7,9 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
-every 1.day, :at => '8:12pm' do
 #   runner "MyModel.some_method"
+
+every 1.day, :at => '8:12pm' do
   rake "todo:delete_items"
 end
 

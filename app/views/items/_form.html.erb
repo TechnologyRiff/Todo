@@ -1,7 +1,9 @@
 <%= form_for [@list, @new_item] do |f| %>
-  <%= f.label :'Create new Task' %>
-  <%= f.text_area :name, rows: 2, class: 'form-control', placeholder: "Describe task." %>
-
+  <div class="form-group">
+    <%= f.label :'Create new Task' %>
+    <%= f.text_area :name, rows: 2, class: 'form-control', placeholder: "Describe task." %>
+  </div>
+  
   <div class="form-group", style="padding:10px 0px 10px 0px">
     <%= f.submit "Save", class: 'btn btn-success' %>
   </div>

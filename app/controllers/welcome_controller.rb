@@ -8,7 +8,6 @@ class WelcomeController < ApplicationController
     @items = @list.items if @list
     @new_item = Item.new
     @urgent_items = Item.urgent   
-    
   end
 
 end

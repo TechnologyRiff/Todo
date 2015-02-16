@@ -4,6 +4,7 @@
   <div class="col-md-8">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+
       <div class="form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Enter email" %>
@@ -13,6 +14,7 @@
         <%= f.label :password %><br />
         <%= f.password_field :password, class: 'form-control', placeholder: "Enter password" %>
       </div>
+
       <div class="form-group">
         <% if devise_mapping.rememberable? %>
           <%= f.label :remember_me, class: 'checkbox' do %>
@@ -21,9 +23,11 @@
         <% end %>
         <%= f.submit "Sign in", class: 'btn btn-success' %>
       </div>
+
       <div class="form-group">
         <%= render "devise/shared/links" %>
       </div>
+      
     <% end %>
   </div>
 </div>
