@@ -1,0 +1,13 @@
+<%= content_tag :div, class: 'media', id: "item-urgent-#{item.id}" do %>
+  <% @urgent_items.each do |item| %>
+    <div class="media-body">
+      <div class="list-item">
+        <%= link_to " ", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok' %>
+        <%=item.name %> 
+      </div>
+      <div class="item-time">
+        <%= time_ago_in_words(item.created_at) %> ago
+      </div>
+    </div>
+  <% end %>
+<% end %>

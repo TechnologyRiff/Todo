@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
 
 resources :lists, except: [:index, :show] do
-  resources :items, only: [:create, :destroy]
+  resources :items, only: [:index, :create, :destroy]
 end
-
-  get 'lists/items' => 'welcome#index'
 
   get 'index' => 'welcome/index'
 

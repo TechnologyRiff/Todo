@@ -1,8 +1,0 @@
-<%= content_tag :div, class: 'media', id: "item-urgent-#{item.id}" do %>
-
-  <div class="media-body">
-    <p><%= link_to " ", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok' %><%=item.name %> <small><%= time_ago_in_words(item.created_at) %> ago</small>
-    </p>
-  </div>
-    
-<% end %>

@@ -1,10 +1,12 @@
 <%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
 
-  <div class="media-body">
-    <p><%= link_to " ", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok' %>
-      <%= item.name %><small><%= pluralize(item.days_left, 'day') %> left</small>
-    </p>
-   </div>
+    <div class="list-item">
+      <%= link_to " ", [@list, item], method: :delete, class: 'glyphicon glyphicon-ok' %>
+      <%= item.name %>
+    </div>
+    <div class="item-time">
+      <%= pluralize(item.days_left, 'day') %> left
+    </div>
    
 <% end %>
 
