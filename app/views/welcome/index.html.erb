@@ -1,6 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
+
       <% if current_user.list.present? %>
             <%= render partial: 'lists/list' %>
         <% elsif current_user.present? && @list.nil? %>
@@ -8,8 +7,7 @@
         <% else %>
           <%= render 'signup' %>
       <% end %>
-    </div>
-  </div>
+
 </div>
 
     
