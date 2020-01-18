@@ -15,7 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'activesupport'
-
+gem "rack", ">= 1.6.12"
 gem 'pundit'
 gem 'redcarpet'
 gem 'carrierwave'
