@@ -22,6 +22,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'whenever', :require => false
+gem "actionview", ">= 4.2.11.1"
 # bundle exec rake doc:rails generates the API under doc/api.
 
 
