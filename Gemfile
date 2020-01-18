@@ -14,7 +14,7 @@ gem 'figaro', '1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'activesupport'
+gem 'activesupport', ">= 4.1.11"
 gem "actionpack", ">= 4.2.5.1"
 gem "rack", ">= 1.6.12"
 gem 'pundit'
