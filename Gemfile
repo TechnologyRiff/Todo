@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'activesupport'
+
 gem 'pundit'
 gem 'redcarpet'
 gem 'carrierwave'
@@ -23,6 +24,7 @@ gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
 gem 'whenever', :require => false
 gem "actionview", ">= 4.2.11.1"
+gem "activerecord", ">= 4.1.14.1"
 # bundle exec rake doc:rails generates the API under doc/api.
 
 
